@@ -1,0 +1,65 @@
+EECS132 Project 3 Testing Report - Kennan LeJeune
+** to be paired with FunctionTest.java   **
+** tested with JUnit 5                   **
+** all tests pass unless otherwise noted **
+
+
+Types: all types which extend Function - Tests the five methods that every Function must contain
+    Method: equals()
+        Tests equivalent and non-equivalent Number, Variable, BinaryOp,
+        UnaryOp, and Polynomial (extends UnaryOp but overrides equals())
+        instances.  Tests case of BinaryOp where left and right operands
+        are swapped but the operation is still mathematically equivalent.
+        i.e. (1 + 3) = (3 + 1) but (1 / 3) != (3 / 1)
+
+    Method: testValueWithoutInput()
+        Tests the value() method of Number, Variable, BinaryOp,
+        and every class which extends UnaryOp.
+        Also tests a numeric composite of many functions.
+        Ensures that numeric functions are correctly evaluated,
+        and that functions with variables throw UnsupportedOperationException
+
+    Method: testValueWithInput()
+        Tests the value (double input) method of Number, Variable, BinaryOp,
+        and every class which extends UnaryOp.
+        Ensures that this method works on both numeric and non-numeric functions,
+        and that both are being correctly evaluated.
+
+    Method: testDerivative()
+        Tests the derivative() method for Number, Variable, BinaryOp,
+        and every class which extends UnaryOp.  Ensures chain rule behavior
+        for individual types and addition, subtraction, product, and quotient
+        rules for BinaryOp derivatives.
+
+    Method: testToString()
+        Tests the string representation of Number, Variable, BinaryOp,
+        and every class which extends UnaryOp.  Ensures all overridden toString()
+        methods print out in the form as specified in the instructions.
+        Tests for BinaryOp include cases where neither the left or right operands
+        are BinaryOps, only the left/right is BinaryOp, and both left and right are
+        BinaryOps, checking both the case with same and differing operations to ensure
+        proper parenthesis placement.
+
+Types: UnaryOp and child classes of UnaryOp
+    Method: testUnaryOp()
+        Tests methods that are specific to UnaryOp, getFunctionName() (used to generalize
+        toString()) and getOperand().  Methods are getters, and thus tested according to what
+        they are expected to return.
+
+Types: BinaryOp
+    Method: testBinaryOp()
+        Tests methods that are specific to BinaryOp, getOperator(), getLeftOperand(),
+        getRightOperand(), and Op.toString().
+
+Types: Polynomial
+    Method: testPolynomial()
+        Tests the getPower() method which is specific to Polynomial.
+        Tested by creating a polynomial of power 2 and ensuring getPower()
+        returns 2.
+
+
+
+
+
+
+
